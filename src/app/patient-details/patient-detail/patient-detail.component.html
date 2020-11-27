@@ -1,0 +1,144 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input hidden="true" name="id" [value]="service.formData.id" [(ngModel)]="service.formData.id">
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="firstName.valid" [class.red-icon]="firstName.invalid && firstName.touched"></i>
+          </div>
+        </div>
+        <input name="firstName" #firstName="ngModel" [(ngModel)]="service.formData.firstName" class="form-control" placeholder="First Name" required maxlength="30" minlength="1">
+      </div>  
+    </div>
+  
+    <div class="form-group col-md-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="lastName.valid" [class.red-icon]="lastName.invalid && lastName.touched"></i>
+          </div>
+        </div>
+        <input  name="lastName" #lastName="ngModel" [(ngModel)]="service.formData.lastName" class="form-control" placeholder="Last Name" required  maxlength="30" minlength="1">
+      </div>  
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-calendar-alt" [class.green-icon]="age.valid" [class.red-icon]="age.invalid && age.touched"></i>
+          </div>
+        </div>
+        <input  name="age" #age="ngModel" [(ngModel)]="service.formData.age" class="form-control" placeholder="age" required>
+      </div>  
+    </div>
+  
+    <div class="form-group col-md-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-venus-mars" [class.green-icon]="gender.valid" [class.red-icon]="gender.invalid && gender.touched"></i>
+          </div>
+        </div>
+        <select name="gender" #gender="ngModel" [(ngModel)]="service.formData.gender" class="form-control" required>
+          <option value="" selected hidden>Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Unspecified">Unspecified</option>
+        </select>
+      </div>  
+    </div>
+  </div> 
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fa fa-envelope-o" [class.green-icon]="email.valid" [class.red-icon]="email.invalid && email.touched"></i>
+        </div>
+      </div>
+      <input  name="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control" placeholder="Email" required  maxlength="30" minlength="1">
+    </div>  
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fa fa-map-marker" [class.green-icon]="address.valid" [class.red-icon]="address.invalid && address.touched"></i>
+        </div>
+      </div>
+      <input  name="address" #address="ngModel" [(ngModel)]="service.formData.address" class="form-control" placeholder="Address" required>
+    </div>  
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fa fa-map-marker" [class.green-icon]="city.valid" [class.red-icon]="city.invalid && city.touched"></i>
+          </div>
+        </div>
+        <input  name="city" #city="ngModel" [(ngModel)]="service.formData.city" class="form-control" placeholder="City" required>
+      </div>  
+    </div>
+
+    <div class="form-group col-md-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fa fa-map-marker" [class.green-icon]="province.valid" [class.red-icon]="province.invalid && province.touched"></i>
+          </div>
+        </div>
+        <select name="province" #province="ngModel" [(ngModel)]="service.formData.province" class="form-control" required>
+          <option value="" selected hidden>Province</option>
+          <option value="NL">NL</option>
+          <option value="PE">PE</option>
+          <option value="NS">NS</option>
+          <option value="NB">NB</option>
+          <option value="NL">NL</option>
+          <option value="QC">QC</option>
+          <option value="ON">ON</option>
+          <option value="MB">MB</option>
+          <option value="SK">SK</option>
+          <option value="AB">AB</option>
+          <option value="BC">BC</option>
+          <option value="YT">YT</option>
+          <option value="NT">NT</option>
+          <option value="NU">NU</option>
+        </select>
+      </div>  
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fa fa-search" [class.green-icon]="result.valid" [class.red-icon]="result.invalid && result.touched"></i>
+        </div>
+      </div>
+      <!-- <input  name="result" #result="ngModel" [(ngModel)]="service.formData.result" class="form-control" placeholder="Result" required> -->
+      <select name="result" #result="ngModel" [(ngModel)]="service.formData.result" class="form-control" required>
+        <option value="" selected hidden>Result</option>
+        <option value="Negative">Negative</option>
+        <option value="Unconfirmed">Unconfirmed</option>
+        <option value="Recovered">Recovered</option>
+        <option value="Positive">Positive</option>
+      </select>
+    </div>  
+  </div>
+  
+
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fa fa-floppy-o"></i> Submit</button>
+  </div>
+</form>
+<div class="form-group">
+  <button (click)="clearForm()" class="btn btn-primary btn-lg btn-block"><i class="fas fa-eraser"></i> Clear Form</button>
+</div>

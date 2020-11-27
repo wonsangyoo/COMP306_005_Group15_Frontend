@@ -1,0 +1,60 @@
+<table class="table table-hover">
+  <th>First Name</th>
+  <th>Last Name</th>
+  <th>Gender</th>
+  <th>Age</th>
+  <th>Province</th>
+  <th>Result</th>
+  <tr *ngFor="let pd of service.patientsList">
+    <td hidden="true" (click)="populateForm(pd)">{{pd.id}}</td>
+    <td (click)="populateForm(pd)">{{pd.firstName}}</td>
+    <td (click)="populateForm(pd)">{{pd.lastName}}</td>
+    <td (click)="populateForm(pd)">{{pd.gender}}</td>
+    <td hidden="true" (click)="populateForm(pd)">{{pd.email}}</td>
+    <td (click)="populateForm(pd)">{{pd.age}}</td>
+    <td hidden="true" (click)="populateForm(pd)">{{pd.address}}</td>
+    <td hidden="true" (click)="populateForm(pd)">{{pd.city}}</td>
+    <td (click)="populateForm(pd)">{{pd.province}}</td>
+    <td (click)="populateForm(pd)">{{pd.result}}</td>
+    <td>
+      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.id)"></i>
+    </td>
+    <td>
+      <i class="far fa-clock" (click)="getInfo(pd.id)"></i>
+    </td>
+  </tr>
+</table>
+
+<div class="form-group">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text bg-white">
+        <i class="fa fa-search"></i>
+      </div>
+    </div>
+    <!-- <input  name="result" #result="ngModel" [(ngModel)]="service.formData.result" class="form-control" placeholder="Result" required> -->
+    <select name="selectedProv" [(ngModel)]="selectedProv" class="form-control" required>
+      <option value="" selected hidden>Province</option>
+      <option value="NL">NL</option>
+      <option value="PE">PE</option>
+      <option value="NS">NS</option>
+      <option value="NB">NB</option>
+      <option value="NL">NL</option>
+      <option value="QC">QC</option>
+      <option value="ON">ON</option>
+      <option value="MB">MB</option>
+      <option value="SK">SK</option>
+      <option value="AB">AB</option>
+      <option value="BC">BC</option>
+      <option value="YT">YT</option>
+      <option value="NT">NT</option>
+      <option value="NU">NU</option>
+    </select>
+  </div>  
+</div>
+<div class="form-group">
+  <button (click)="showByProvince()" class="btn btn-success btn-lg btn-block" type="Find by Province"><i class="fas fa-search-plus"></i> Find by Province</button>
+</div>
+<div class="form-group">
+  <button (click)="getAllTests()" class="btn btn-info btn-lg btn-block" type="Find by Province"><i class="fas fa-search-minus"></i> Retrieve All Tests</button>
+</div>
